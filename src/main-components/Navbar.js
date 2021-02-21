@@ -1,5 +1,6 @@
-import { AppBar, Box, Button, Link, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import { Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -8,6 +9,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     "& a": {
       color: "#191F52",
+      textDecoration: "none",
       "&:hover": {
         textDecoration: "none",
       }
@@ -15,36 +17,45 @@ const useStyles = makeStyles({
   }
 });
 
-const Navbar = () => {
+const Navbar = ({ Home, Vote, Candidates, Result}) => {
   const classes = useStyles();
-  const preventDefault = e => e.preventDefault();
 
   return (
-    <Box p={2} className={ classes.root }>
-      
-      <Link href="/" onClick={ preventDefault }>
-        <Typography variant="h4">e-vote</Typography>
-      </Link>
-      <Box component="span">
-        <Button>
-          <Link href="/vote" onClick={ preventDefault }>
-            Vote
+    <Router>
+      <div>
+        <Box p={2} className={ classes.root }>
+          <Link to="/home">
+            <Typography variant="h4">e-vote</Typography>
           </Link>
-        </Button>
-        <Button>
-          <Link href="/candidates" onClick={ preventDefault }>
-            Candidates
-          </Link>
-        </Button>
-        <Button>
-          <Link href="/result" onClick={ preventDefault }>
-            Result
-          </Link>
-        </Button>
-      </Box>
-    </Box>
+          <Box component="span">
+            <Button>
+              <Link to="/vote">
+                Vote
+              </Link>
+            </Button>
+            <Button>
+              <Link to="/candidates">
+                Candidates
+              </Link>
+            </Button>
+            <Button>
+              <Link to="/result">
+                Result
+              </Link>
+            </Button>
+          </Box>
+        </Box>
 
-  )
+        <Switch>
+          <Route path="/home"><Home /></Route>
+          <Route path="/vote"><Vote /></Route>
+          <Route path="/candidates"><Candidates /></Route>
+          <Route path="/result"><Result /></Route>
+        </Switch>
+      </div>
+    </Router>
+
+  );
 }
 
 export default Navbar;

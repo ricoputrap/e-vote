@@ -1,25 +1,30 @@
 import './App.css';
+import React from "react";
 import Navbar from './main-components/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      {/* <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>``
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <Navbar 
+        Home={Home} 
+        Vote={Vote} 
+        Candidates={Candidates} 
+        Result={Result}
+      />
     </div>
   );
+}
+function Home() {
+  return <h1>HOME</h1>
+}
+function Vote() {
+  return <h1>VOTE</h1>
+}
+function Candidates() {
+  return <h1>CANDIDATES</h1>
+}
+function Result() {
+  return <h1>RESULT</h1>
 }
 
 export default App;
