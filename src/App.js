@@ -1,6 +1,6 @@
-import './App.css';
 import React from "react";
 import Navbar from './main-components/Navbar';
+import Home from "./main-components/Home";
 
 function App() {
   return (
@@ -14,9 +14,7 @@ function App() {
     </div>
   );
 }
-function Home() {
-  return <h1>HOME</h1>
-}
+
 function Vote() {
   return <h1>VOTE</h1>
 }

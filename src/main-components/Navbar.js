@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "1rem 5rem",
+    // padding: "1rem 5rem",
     "& .MuiButton-text": {
       marginLeft: "1rem",
     },
