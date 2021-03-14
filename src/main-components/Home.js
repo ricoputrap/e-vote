@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import HowToVoteIcon from '@material-ui/icons/HowToVote';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import PeopleIcon from '@material-ui/icons/People';
@@ -25,6 +26,13 @@ const useStyles = makeStyles({
         height: "5rem",
         width: "5rem",
         color: "#5A68E5"
+      },
+      "& a": {
+        color: "#191F52",
+        textDecoration: "none",
+        "&:hover": {
+          textDecoration: "none",
+        }
       }
     }
   },
@@ -38,20 +46,26 @@ const Home = () => {
       <Grid container spacing={4}>
         <Grid item sm={4} style={{ justifyContent: "flex-end" }}>
           <Card>
-            <HowToVoteIcon />
-            <Typography>Vote</Typography>
+            <Link to="/vote">
+              <HowToVoteIcon />
+              <Typography>Vote</Typography>
+            </Link>
           </Card>
         </Grid>
         <Grid item sm={4} style={{ justifyContent: "center" }}>
           <Card>
-            <PeopleIcon />
-            <Typography>Candidates</Typography>
+            <Link to="/candidates">
+              <PeopleIcon />
+              <Typography>Candidates</Typography>
+            </Link>
           </Card>
         </Grid>
         <Grid item sm={4} style={{ justifyContent: "flex-start" }}>
           <Card>
-            <PieChartIcon />
-            <Typography>Result</Typography>
+            <Link to="/result">
+              <PieChartIcon />
+              <Typography>Result</Typography>
+            </Link>
           </Card>
         </Grid>
       </Grid>
